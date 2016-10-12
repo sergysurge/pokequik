@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+		<script type="text/javascript" src="/factory/factory.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+		<meta charset="utf-8">
+		<link href="styles.css" rel="stylesheet" type="text/css">
+		<title>PokeQuik</title>
+	</head>
+
+	<body> 
+	 <div class="container">
+		<div class="profile" ng-controller="loginCont as L">
+			<div class="profile" ng-if="L.ans">
+				<ul class="straightList">
+					<li>{{L.poke.user.name}}</li>
+					<li>Wins: {{L.poke.user.wins}}</li>
+					<li>Losses: {{L.poke.user.losses}}</li>
+					<li>Coins: {{L.poke.user.coins}}</li>
+					<li>Potions: {{L.poke.user.potions}}</li>
+					<li>Pokemon #: {{L.poke.user.pokeLoadNumber}}</li>
+					<li>{{L.poke.user.moreWins}} wins until 20 NEW Pokemon!</li>
+				</ul>
+			</div>
+			<button type="submit" ng-click="L.initGame()">new game/load game</button>
+			<button ng-click="L.sellCoin()">Buy Potions!</button>
+		</div>
+
+		<div class="profile" ng-controller="grabPokemonCont as g">	
+			<div class="myPokemon">
+				<button ng-click="g.grabber()">Load My Pokemon</button>
+				<ul class="myPokemonUl">
+					<li ng-repeat="a in g.Poke.user.pokemon" ng-click="g.grabOnePokemon(a.url)" class="myPokemonli"> {{a.name}}</li>
+				</ul>
+			</div>
+			<div  ng-if="g.answer" class="currentPokemon">
+				<h3> Current Pokemon</h3>
+				<ul class="pokeStats" ng-if="g.answer">
+					<li> <img src={{g.Poke.myPokemon.front}}></li>
+					<li> <strong>
+					 {{g.Poke.myPokemon.stats.name}} </strong>
+					</li>
+					<li>Type: 
+					 {{g.Poke.myPokemon.stats.type}}
+					</li>
+					<li>Defense: 
+					 {{g.Poke.myPokemon.stats.def}}
+					</li>
+					<li> Health: 
+					 {{g.Poke.myPokemon.stats.hp}}
+					</li>
+					<li >Attack: 
+					 {{g.Poke.myPokemon.stats.attack}}
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="opponent" ng-controller="grabOpponentCont as opp">
+			
+			<div ng-if="opp.ans" class="currentPokemon">
+			<h3 >Opponent Pokemon</h3>
+			<ul class="opponentRender" ng-if="opp.ans">
+				<li> <img src={{opp.Poke.opponent.front}}></li>
+				<li><strong>{{opp.Poke.opponent.stats.name}}</strong>
+				</li>
+				<li>Type: 
+				 {{opp.Poke.opponent.stats.type}}
+				</li>
+				<li>Defense: 
+				 {{opp.Poke.opponent.stats.def}}
+				</li>
+				<li> Health: 
+				 {{opp.Poke.opponent.stats.hp}}
+				</li>
+				<li >Attack: 
+				 {{opp.Poke.opponent.stats.attack}}
+				</li>
+			</ul>
+			</div>
+			<button class=".opponent" ng-click="opp.grabOneOpponent()">Load random opponent</button>
+		</div>
+
+		<div class="fight" ng-controller="fight as f">
+			<button ng-click="f.startRound()">Fight!</button>
+			<h3 ng-if="f.ans"> FIGHT! </h3>
+			<button ng-if="f.ans" ng-click="f.attack()">Attack!</button>
+			<button ng-if="f.ans" ng-click="f.usePotion()">Use Potion!</button>
+			<p ng-if="f.hits"> You hit for {{f.myhit}},    {{f.op}} hp remaining! <br/> You got hit for {{f.ophit}},    {{f.me}} hp remaning!</p>
+		</div>
+		</div>
+
+
+
+
+	</body>
+</html>

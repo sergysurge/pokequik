@@ -1,0 +1,102 @@
+.container {
+	width: 100%;
+	margin: auto;
+	text-align:center;
+}
+
+.profile {
+	width: 100%;
+	margin: auto auto 20px auto;
+	text-align:center;
+}
+
+.straightList li{
+	cursor: crosshair;
+	list-style-type:none;
+	display: inline-block;
+	margin: auto;
+	padding: 7px;
+	border: 1px solid black;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.straightList {
+	text-align:center;
+
+}
+
+button {
+	margin:auto;
+	padding: 10px;
+	font-size:1em;
+}
+.myPokemon {
+	width:200px;
+	text-align:center;
+	float:left;
+}
+
+.myPokemonUl {
+	text-align:center;
+	margin:auto;
+	float:left;
+}
+.myPokemonli {
+	cursor: pointer;
+	list-style-type:none;
+	margin: auto;
+	padding: 7px;
+	border: 1px solid black;
+	font-size: 1em;
+	font-weight: bold;
+}
+.currentPokemon {
+	float:left;
+	text-align:center;
+	padding:7px;
+	font-size: 1em;
+	border: 1px solid black;
+	margin:auto;
+}
+
+.pokeStats {
+	text-align:center;
+	font-size: 1em;
+	margin:auto;
+}
+
+.pokeStats li {
+	cursor: crosshair;
+	list-style-type:none;
+	margin: auto;
+	padding: 7px;
+	text-align:center;
+}
+
+.opponent {
+	float:left;
+	margin:auto auto auto 10px;
+	text-align:center;
+}
+
+.opponentRender {
+	margin:auto;
+	text-align:center;
+}
+
+.opponentRender li {
+	list-style-type:none;
+	margin:auto;
+	text-align:center;
+	cursor: crosshair;
+	padding: 7px;
+
+}
+
+.fight {
+	float:left;
+	margin:auto;
+	border: 1px solid black;
+}
+
